@@ -1,0 +1,665 @@
+.main-body{
+    min-height: 100vh;
+}
+
+.catalog-header {
+    display: flex;
+    width: 100%;
+}
+
+#option1{
+    background-color: #9c8bff;
+}
+
+#option2{
+    background-color: #7B68EE;
+}
+
+.catalog-option {
+    flex: 1;
+    text-align: center;
+    font-size: 1.6em;
+    padding: 0.5%;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.catalog-container {
+    margin-top: 5%;
+    width:100%;
+    padding: 5%;
+    border: 2px solid transparent; /* Рамка по умолчанию прозрачная */
+    transition: border-color 0.3s;
+    display: none;
+}
+
+.catalog-container.visible {
+    transform: translateY(0);
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    gap: 2%;
+}
+
+.catalog-item {
+    text-align: center;
+    padding: 7%;
+    transition: transform 0.3s;
+}
+
+.catalog-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.title {
+    margin-bottom: 2%;
+    font-size: 1.2em;
+}
+
+.price {
+    margin: 0.5em 0;
+    font-size: 1em;
+}
+.quantity-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.4em 0;
+}
+
+.quantity-controls button {
+    background-color: #ddd;
+    border: none;
+    padding: 0.2em 0.5em;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.quantity {
+    margin: 0 0.5em;
+}
+
+.add-to-cart {
+    background-color: #9c8bff;
+    color: black;
+    border: none;
+    padding: 0.6em 0.8em;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    margin-right: 2%;
+}
+
+.add-to-cart:hover {
+    background-color: #6e58e7;
+}
+
+.catalog-item:hover {
+    transform: translateY(-3%);
+}
+
+.product-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background: #fff;
+    padding: 2%;
+    display: flex;
+    max-width: 60em;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.modal-content h2{
+    margin-bottom: 3.5%;
+}
+
+.modal-content p{
+    margin-bottom: 3%;
+}
+
+.modal-left{
+    width: 50%;
+    margin-right: 2em;
+}
+
+
+.modal-right {
+    padding-left: 0.5%;
+    flex: 1;
+}
+
+.nutrition-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 2%;
+    font-size: 1em;
+    color: #555;
+}
+
+.nutrition-list li {
+    margin-bottom: 2%;
+}
+
+.close-button {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.popup-overlay {
+    display: none;
+}
+
+.popup-overlay.active {
+    display: flex;
+}
+
+
+.custom-message {
+    color: #555;
+    text-align: center;
+    margin-top: 2%;
+    display: block;
+}
+
+#designerContainer {
+    margin-top: 5%;
+    padding: 5%;
+    width: 100%;
+    border: 2px solid transparent; /* Рамка по умолчанию прозрачная */
+    transition: border-color 0.3s;
+    display: none;
+}
+
+#designerContainer.visible{
+    display: flex;
+    flex-direction: column;
+}
+
+.design-start-btn{
+    background-color: #7B68EE;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 2%;
+    padding: 0.8em;
+}
+
+.design-start-btn:hover{
+    background-color: rgb(58, 33, 201);
+}
+
+.image-container {
+    transform: translateY(0);
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    gap: 2%;
+}
+
+.image-item {
+    text-align: center;
+    padding: 7%;
+    transition: transform 0.3s;
+    transform: translateY(0);
+}
+
+.image-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.image-item.selected img {
+    opacity: 0.5;
+}
+
+.image-item.selected::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3em; /* Размер значка */
+    height: 3em;
+    background-image: url('images_cake/selected_img.svg'); /* Путь к загруженному значку */
+    background-size: cover;
+    background-position: center;
+    transform: translate(-50%, -50%);
+}
+
+.image-item:hover img {
+    opacity: 0.7;
+}
+
+.form{
+    margin-top: 3%;
+    margin-bottom: 2%;
+    background-color: #c0bbdf;
+    padding: 5%;
+    width: 100%;
+    max-width: 80%;
+    line-height: 1.7em;
+    border: 1px solid black;
+    border-radius: 8px;
+    display: block;
+}
+
+.form.hidden{
+    display: none;
+}
+
+.form-group {
+    margin-bottom: 3.5%;
+}
+.form-group label {
+    color: black;
+    display: block;
+    margin-bottom: 2%;
+}
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+.form-group textarea {
+    resize: none;
+}
+.counter-group {
+    display: flex;
+    align-items: center;
+    gap: 2%;
+}
+.counter-group input[type="number"] {
+    width: 2em;
+    height: 1.5em;
+    font-size: 1.2em;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+.counter-group button {
+    width: 2em;
+    background-color: #7c73b8;
+    color: black;
+    border: none;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+.counter-group button:hover {
+    background-color: #7c73b8;
+}
+.submit-btn {
+    width: 100%;
+    padding: 0.6em;
+    color: black;
+    background-color: #2846a7;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.submit-btn:hover {
+    background-color: #463a96;
+}
+.message {
+    text-align: center;
+    color: green;
+    font-size: 1.6em;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: none;
+}
+
+.next-btn {
+    background-color: #7B68EE;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    padding: 1% 3%;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    gap: 3%; /* Отступ между кнопками */
+}
+
+.button-container.hidden{
+    display:none;
+}
+
+.prev-btn{
+    content: '←';
+    background-color: #7B68EE; /* Фиолетовый полупрозрачный */
+    color: black;
+    border: none;
+    border-radius: 50%;
+    width: 2.5em; /* Размер кнопки */
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1em; /* Размер иконки */
+}
+
+.prev-button:hover {
+    background-color: #7B68EE; /* Более насыщенный цвет */
+}
+
+.next-btn:hover{
+    background-color: #4326e2; /* Легкое затемнение фона */
+}
+
+.next-btn.shake {
+    animation: shake 0.3s;
+}
+
+.reset-button {
+    display: none; /* Изначально скрыта */
+    margin: 5% auto;
+    padding: 0.6em;
+    background-color: #7B68EE;
+    color: black;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .reset-button:hover {
+    background-color: #4326e2;
+  }
+
+  .reset-button.visible {
+    display: block; /* Показываем кнопку */
+  }
+
+  .p{
+    font-size: 1.2em;
+  }
+
+  .txt{
+    font-size: 1.2em;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3%); }
+    50% { transform: translateX(3%); }
+    75% { transform: translateX(-3%); }
+}
+
+
+/* Базовые стили для больших экранов (больше 1200px) */
+@media (min-width: 1200px) and (max-width:1440px) {
+    .catalog-container.visible {
+        display:grid;
+        grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+        padding: 5%;
+    }
+    .modal-content {
+        max-width: 60em;
+    }
+}
+
+@media (max-width: 768px) {
+    .p{
+        font-size: 1em;
+    }
+    .image-container {
+        width: 100%; /* Адаптивная ширина для меньших экранов */
+    }
+    .catalog-header {
+        display: block;
+    }
+    .title{
+        font-size: 1.1em;
+    }
+    .catalog-option {
+        font-size: 1.3em;
+        padding: 1.5%;
+    }
+    .catalog-container.visible {
+        display:grid;
+        grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+        padding: 3%;
+        height: 80em;
+    }
+    .modal-content {
+        max-width: 21em;
+        height: 25em;      
+    }
+    .modal-content p{
+        font-size: 0.8em;
+    }
+    .nutrition-list li{
+        font-size: 0.8em;
+    }
+    .modal-left{
+        display:none;
+    }
+    .add-to-cart{
+        font-size:0.8em;
+    }
+    .image-container{
+        grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    }
+    .form-group input[type="text"],
+    .form-group textarea {
+        padding: 0.3em;
+        font-size: 0.8em;
+    }
+    .design-start-btn {
+        padding: 0.5em;
+    }
+    .prev-btn{
+        font-size: 1em;
+    }
+    .next-btn{
+        font-size: 1em;
+    }
+    .button-container{
+        margin-top: 4em;
+    }
+    .image-item.selected::after {
+        width: 2em;
+        height:2em;
+    }
+    .counter-group input[type="number"] {
+        font-size: 1em;
+    }
+    .form-group input[type="text"],
+    .form-group textarea {
+        padding: 0.4em;
+        font-size: 0.8em;
+    }
+    .form{
+        max-width:100%;
+    }
+    .message {
+        font-size: 1.6em;
+    }
+    .submit-btn {
+        padding: 0.4em;
+    }
+}
+@media (min-width:769px) and (max-width: 1270px){
+    .catalog-option {
+        font-size: 1.4em;
+        padding: 1%;
+    }
+    .catalog-container.visible {
+        grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+        padding: 4%;
+    }
+    .modal-content h2 {
+        font-size: 1.6em;
+    }
+    .modal-content {
+        max-width: 70em;
+        width: 55em;
+        height: 35em;
+    }
+    .modal-content p{
+        font-size: 1.1em;
+    }
+    .nutrition-list li{
+        font-size: 1.1em;
+    }
+    .modal-left {
+        width: 45%;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .catalog-option {
+        font-size: 1.4em;
+        padding: 1%;
+    }
+    .catalog-container.visible {
+        display:grid;
+        grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+        padding: 4%;
+    }
+    .modal-content h2 {
+        font-size: 1.7em;
+    }
+    .modal-content {
+        max-width: 80em;
+        width: 70em;
+        height: 35em;
+    }
+    .modal-content p{
+        font-size: 1.2em;
+    }
+    .nutrition-list li{
+        font-size: 1.2em;
+    }
+    .modal-left {
+        width: 45%;
+    }
+    .quantity-controls button {
+        font-size: 1.5em;
+    }
+    .p{
+        font-size: 1.9em;
+    }
+    .catalog-option{
+        font-size: 2.2em;
+    }
+    .design-start-btn {
+        padding: 0.5em;
+    }
+    .prev-btn{
+        font-size: 2em;
+    }
+    .next-btn{
+        font-size: 2em;
+    }
+    .image-item.selected::after {
+        width: 4em;
+        height:4em;
+    }
+    .counter-group input[type="number"] {
+        font-size: 1em;
+    }
+    .form-group input[type="text"],
+    .form-group textarea {
+        padding: 0.4em;
+        font-size: 0.8em;
+    }
+    .message {
+        font-size: 2.6em;
+    }
+    .submit-btn {
+        padding: 0.4em;
+    }
+}
+
+@media (min-width: 1920px){
+    .catalog-option {
+        font-size: 1.4em;
+        padding: 1%;
+    }
+    .catalog-container.visible {
+        display:grid;
+        grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+        padding: 4%;
+    }
+    .modal-content h2 {
+        font-size: 1.9em;
+    }
+    .modal-content {
+        max-width: 90em;
+        width: 85em;
+        height: 45em;
+    }
+    .modal-content p{
+        font-size: 1.5em;
+    }
+    .nutrition-list li{
+        font-size: 1.5em;
+    }
+    .modal-left {
+        width: 45%;
+    }
+    .quantity-controls button {
+        font-size: 1.8em;
+    }
+    .p{
+        font-size: 2.2em;
+      }
+    .catalog-option{
+        font-size: 2.5em;
+    }
+    .design-start-btn {
+        padding: 0.5em;
+    }
+    .prev-btn{
+        font-size: 2em;
+    }
+    .next-btn{
+        font-size: 2em;
+    }
+    .image-item.selected::after {
+        width: 5em;
+        height:5em;
+    }
+    .counter-group input[type="number"] {
+        font-size: 1em;
+    }
+    .form-group input[type="text"],
+    .form-group textarea {
+        padding: 0.5em;
+        font-size: 1em;
+    }
+    .message {
+        font-size: 2.6em;
+    }
+}
+

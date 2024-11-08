@@ -1,0 +1,92 @@
+﻿table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+td {
+    width: 33%;
+    height: 5.5em;
+    font-size: 1.6em;
+}
+
+tr:nth-child(odd) td:nth-child(even),
+tr:nth-child(even) td:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+
+tr:nth-child(odd) td:nth-child(odd),
+tr:nth-child(even) td:nth-child(even) {
+    background-color: rgb(166,182,135);
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: border-bottom 0.3s ease;
+}
+
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* Для маленьких экранов меньше 768px */
+    @media (max-width: 768px) {
+        .main-body{
+            height: 100vh;
+        }
+        table {
+            display: flex; /* Устанавливаем таблицу как блочный элемент */
+            justify-content: center;
+        }
+    
+        tr {
+            display: flex; /* Делаем строки флекс-элементами */
+            flex-direction: column; /* Выводим каждую ячейку в новой строке */
+        }
+    
+        td {
+            width: 100%;
+            height: auto;
+            font-size: 1.4em;
+            padding: 1em;
+        }
+    
+        td:before {
+            content: attr(data-label); /* Добавляем заголовок для ячейки */
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 0.5em;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px){
+        td {
+            height: 5.5em;
+            font-size: 1.2em;
+        }
+    }
+
+    @media (min-width: 1440px) and (max-width: 1920px) {
+        td {
+            height: 6.5em;
+            font-size: 1.7em;
+        }
+        table {
+            width: 85%;
+        }
+    }
+
+    @media (min-width: 1920px){
+        td {
+            height: 7em;
+            font-size: 2.2em;
+        }
+        table {
+            width: 90%;
+        }
+    }
